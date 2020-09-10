@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+td {
+    background: darkgrey;
+    padding: 2px;
+    border: 2px solid black;
+}
+
+a:link {
+
+    color: ghostwhite;
+}
+div{
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    
+<!-- <table border="2">
+
+<caption>
+заголовок таблицы
+</caption>
+
+<tr><td colspan="2"> ячейка 1</td><td rowspan="2"> ячейка 3</td></tr>
+<tr><td> ячейка 4</td><td> ячейка 5</td>
+<tr><td> ячейка 7</td><td> ячейка 8</td><td> ячейка 9</td></tr>
+
+
+</table> -->
+<h1>Cоздать таблицу: </h1>
+<form name="myform">
+
+столбцы: <input type="text" name="cols" value="5"> <br>
+сторки: <input type="text" name="rows" value="7"> <br>
+цвет фона: <input type="text" name="bc" value="black"> <br>
+цвет рамки: <input type="text" name="brd" value="red"> <br>
+
+<input id="b" type="button" value="создать" onclick=" mytable()">
+<input type="reset" >
+</form>
+
+<div id="tab1"></div>
+
+<script>
+
+// x = prompt("введите количество столбцов");
+// y = prompt("введите количество строк"); 
+
+// x = 6;
+// y = 6;
+
+// c1 = prompt ("введите цвет рамки таблицы")
+// c2 = prompt ("введите основной цвет таблицы")
+
+function mytable(){
+
+    x =myform.cols.value;
+    y =myform.rows.value;
+    c1 =myform.bc.value;
+    c2 =myform.brd.value;
+
+let c = 1;
+let tab = "<table>";
+for (i=1; i<=y; i++) {
+
+tab += "<tr>";
+
+for (j=1; j<+x; j++){
+tab += `<td style="background: ${c1} ;
+border: 2px solid ${c2};
+"><a href="link${c}.html"> ячейка${c} </a></td>`;
+c++;
+}
+
+tab += "</tr>";
+
+}
+
+tab += "</table>"
+tab1.innerHTML = tab;
+
+}
+</script>
+
+
+</body>
+</html>
